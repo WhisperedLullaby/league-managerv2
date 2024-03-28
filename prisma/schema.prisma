@@ -18,3 +18,26 @@ model Post {
 
     @@index([name])
 }
+
+model League {
+    id            Int      @id @default(autoincrement())
+    name          String
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
+    deadline      DateTime @default(now())
+    divisions     Int      @default(0)
+    weeks         Int      @default(0)
+    playoffs      Boolean  @default(false)
+    playoffFormat String   @default("single")
+    playoffWeeks  Int      @default(0)
+    costPerTeam   Int      @default(0)
+
+    @@index([name])
+}
+
+model GlobalMessage {
+    id        Int      @id @default(autoincrement())
+    message   String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
